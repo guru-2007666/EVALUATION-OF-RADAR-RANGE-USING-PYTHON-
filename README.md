@@ -1,4 +1,4 @@
-# EVALUATION-OF-RADAR-RANGE-USING-PYTHON-
+# EVALUATION-OF-RADAR-RANGE-USING-SCILAB-
 
 __Aim__:
 
@@ -24,28 +24,43 @@ transmitter gain, receiver gain, radar frequency, radar cross section, and minim
 5. Calculate the Maximum Range: Use the function to calculate the maximum range of the radar. 
 6. Execute the Program: Run the Python script to calculate and display the maximum range of the radar.
 
+PROGRAM:
+```
 
-   ___Algorithm__:
+Gr = 7;
+w = 8;
+sigma = 9;  
+pmin = 1e-9;
+Gt = 6;
+Pt = 0.5:0.5:100;   
+Rmax1 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^3) .* pmin))).^(1/4);
+subplot(3,1,1);
+plot(Pt, Rmax1);
+
+Pt = 20;
+Gt = 0.1:0.1:9;     
+Rmax2 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^3) .* pmin))).^(1/4);
+subplot(3,1,2);
+plot(Gt, Rmax2);
+
+Gt = 7;
+pmin = 1e-14:1e-13:1e-9;  
+Rmax3 = (((Pt .* Gt .* Gr .* (w.^2) .* sigma) ./ (((4 * %pi).^3) .* pmin))).^(1/4);
+subplot(3,1,3);
+plot(pmin, Rmax3);
+```
+   
+__Output__:
    
 
 
+<img width="1807" height="1023" alt="image" src="https://github.com/user-attachments/assets/91546bfd-a8a5-40a1-a8da-0ba4130cfd09" />
 
 
 
-
-
-   __Output__:
+  __Result__:
    
-
-
-
-
-
-
-
-   __Result__:
-   
-
+Thus, the maximum range of a radar system calculated using the Radar Range Equation is successfully verified using Scilab programming.
 
 
 
